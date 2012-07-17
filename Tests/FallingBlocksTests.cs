@@ -4,19 +4,11 @@ using Tetris.Core;
 namespace Tetris.Tests
 {
     [TestFixture]
-    public class FallingBlocksTest
+    public class FallingBlocksTests
     {
         [TestFixture]
         public class A_New_Board : BoardTest
         {
-            private Board _board;
-
-            [SetUp]
-            public void InitializeBoard()
-            {
-                _board = new Board(3, 3);
-            }
-
             [Test]
             public void Is_Empty()
             {
