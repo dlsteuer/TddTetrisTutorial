@@ -46,9 +46,11 @@
   <ItemGroup>
     <Compile Include="1_FallingBlocksTests.cs" />
     <Compile Include="4_FallingPiecesTests.cs" />
+    <Compile Include="5_MovingAFallingPieceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="2_RotatingPiecesOfBlocksTests.cs" />
     <Compile Include="3_RotatingTetrominosTests.cs" />
+    <Compile Include="6_RotatingAFallingPieceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
