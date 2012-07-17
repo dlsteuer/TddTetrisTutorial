@@ -12,10 +12,11 @@ namespace Tetris.Tests
             [Test]
             public void Is_Empty()
             {
-                Assert.That("" +
+                var expected = "" +
                             "...\n" +
                             "...\n" +
-                            "...\n", Is.EqualTo(_board.ToString()));
+                            "...\n";
+                Assert.That(_board.ToString(), Is.EqualTo(expected));
             }
 
             //[Test]
@@ -43,20 +44,22 @@ namespace Tetris.Tests
             //[Test]
             //public void It_Starts_From_The_Top_Middle()
             //{
-            //    Assert.That("" +
+            //    var expected = "" +
             //        ".X.\n" +
             //        "...\n" +
-            //        "...\n", Is.EqualTo(_board.ToString()));
+            //        "...\n";
+            //    Assert.That(_board.ToString(), Is.EqualTo(expected));
             //}
 
             //[Test]
             //public void It_Moves_Down_One_Row_Per_Tick()
             //{
             //    _board.Tick();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "...\n" +
             //        ".X.\n" +
-            //        "...\n", Is.EqualTo(_board.ToString()));
+            //        "...\n";
+            //    Assert.That(_board.ToString(), Is.EqualTo(expected));
             //}
 
             //[Test]
@@ -71,10 +74,11 @@ namespace Tetris.Tests
             //    {
             //        Assert.That(e.Message, Is.StringContaining("already falling"));
             //    }
-            //    Assert.That("" +
+            //    var expected = "" +
             //        ".X.\n" +
             //        "...\n" +
-            //        "...\n", Is.EqualTo(_board.ToString()));
+            //        "...\n";
+            //    Assert.That(_board.ToString(), Is.EqualTo(expected));
             //}
         }
 */
@@ -93,10 +97,11 @@ namespace Tetris.Tests
             [Test]
             public void It_Is_Still_Falling_On_The_Last_Row()
             {
-                Assert.That("" +
+                var expected = "" +
                     "...\n" + 
                     "...\n" +
-                    ".X.\n", Is.EqualTo(_board.ToString()));
+                    ".X.\n";
+                Assert.That(_board.ToString(), Is.EqualTo(expected));
                 Assert.That(_board.HasFalling(), Is.True, "the should still be able to move the block");
             }
 
@@ -104,10 +109,11 @@ namespace Tetris.Tests
             //public void It_Stops_When_It_Hits_The_Bottom()
             //{
             //    _board.Tick();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "...\n" +
             //        "...\n" +
-            //        ".X.\n", Is.EqualTo(_board.ToString()));
+            //        ".X.\n";
+            //    Assert.That(_board.ToString(), Is.EqualTo(expected));
             //    Assert.That(_board.HasFalling, Is.False, "The block should stop moving");
             //}
         }
@@ -123,10 +129,11 @@ namespace Tetris.Tests
                 _board.Tick();
                 _board.Tick();
                 _board.Tick();
-                Assert.That("" +
+                var expected = "" +
                     "...\n" +
                     "...\n" +
-                    ".X.\n", Is.EqualTo(_board.ToString()));
+                    ".X.\n";
+                Assert.That(_board.ToString(), Is.EqualTo(expected));
                 Assert.That(_board.HasFalling(), Is.False);
 
                 _board.Drop(new Block('Y'));
@@ -136,10 +143,11 @@ namespace Tetris.Tests
             [Test]
             public void It_Is_Still_Falling_Right_Above_The_Other_Block()
             {
-                Assert.That("" +
+                var expected = "" +
                     "...\n" +
                     ".Y.\n" +
-                    ".X.\n", Is.EqualTo(_board.ToString()));
+                    ".X.\n";
+                Assert.That(_board.ToString(), Is.EqualTo(expected));
                 Assert.That(_board.HasFalling(), Is.True, "The player should still be able to avoid landing on the other block");
             }
 
@@ -147,10 +155,11 @@ namespace Tetris.Tests
             //public void It_Stops_When_It_Hits_The_Other_Block()
             //{
             //    _board.Tick();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "...\n" +
             //        ".Y.\n" +
-            //        ".X.\n", Is.EqualTo(_board.ToString()));
+            //        ".X.\n";
+            //    Assert.That(_board.ToString(), Is.EqualTo(expected));
             //    Assert.That(_board.HasFalling(), Is.False, "The block should stop moving when it lands on the other block");
             //}
         }

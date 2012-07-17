@@ -20,30 +20,33 @@ namespace Tetris.Tests
             [Test]
             public void Consists_Of_Many_Blocks()
             {
-                Assert.That("" +
+                var expected = "" +
                     ".X.\n" +
                     ".X.\n" +
-                    "...\n", Is.EqualTo(_piece.ToString()));
+                    "...\n";
+                Assert.That(_piece.ToString(), Is.EqualTo(expected));
             }
 
             //[Test]
             //public void Can_Be_Rotated_Right()
             //{
             //    _piece = _piece.RotateRight();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "...\n" +
             //        ".XX\n" +
-            //        "...\n", Is.EqualTo(_piece.ToString()));
+            //        "...\n";
+            //    Assert.That(_piece.ToString(), Is.EqualTo(expected));
             //}
 
             //[Test]
             //public void Can_Be_Rotated_Left()
             //{
             //    _piece = _piece.RotateLeft();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "...\n" +
             //        "XX.\n" +
-            //        "...\n", Is.EqualTo(_piece.ToString()));
+            //        "...\n";
+            //    Assert.That(_piece.ToString(), Is.EqualTo(expected));
             //}
         }
 
@@ -64,36 +67,39 @@ namespace Tetris.Tests
             [Test]
             public void Consists_Of_Many_Blocks()
             {
-                Assert.That("" +
+                var expected = "" +
                     "..XXX\n" +
                     "..XX.\n" +
                     "..X..\n" +
                     ".....\n" +
-                    ".....\n", Is.EqualTo(_piece.ToString()));
+                    ".....\n";
+                Assert.That(_piece.ToString(), Is.EqualTo(expected));
             }
 
             //[Test]
             //public void Can_Be_Rotated_Right()
             //{
             //    _piece = _piece.RotateRight();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        ".....\n" +
             //        ".....\n" +
             //        "..XXX\n" +
             //        "...XX\n" +
-            //        "....X\n", Is.EqualTo(_piece.ToString()));
+            //        "....X\n";
+            //    Assert.That(_piece.ToString(), Is.EqualTo(expected));
             //}
 
             //[Test]
             //public void Can_Be_Rotated_Left()
             //{
             //    _piece = _piece.RotateLeft();
-            //    Assert.That("" +
+            //    var expected = "" +
             //        "X....\n" +
             //        "XX...\n" +
             //        "XXX..\n" +
             //        ".....\n" +
-            //        ".....\n", Is.EqualTo(_piece.ToString()));
+            //        ".....\n";
+            //    Assert.That(_piece.ToString(), Is.EqualTo(expected));
             //}
         }
   
