@@ -77,7 +77,7 @@ namespace Tetris.Tests
             //        "...\n", Is.EqualTo(_board.ToString()));
             //}
         }
- */
+*/
 /*
         [TestFixture]
         public class When_A_Block_Reaches_The_Bottom : BoardTest

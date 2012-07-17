@@ -96,10 +96,12 @@ namespace Tetris.Tests
             //        ".....\n", Is.EqualTo(_piece.ToString()));
             //}
         }
-    }
+  
 */
+    }
+
     public class PieceTest
     {
-        protected Piece _piece;
+        //protected Piece _piece;
     }
 }
