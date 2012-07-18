@@ -34,25 +34,23 @@ This tutorial has been used in the [TDD programming technique and designing code
 The Steps of the Tutorial
 -------------------------
 
-Use the tests in the [src/test/java/tetris](http://github.com/orfjackal/tdd-tetris-tutorial/tree/tutorial/src/test/java/tetris/) directory to write a Tetris game. Implement code to pass the tests, one file and one test at a time, in the same order as they are listed below, starting with `FallingBlocksTest.java`.
+Use the tests in the [Tests](https://github.com/dlsteuer/TddTetrisTutorial/tree/tutorial/Tests) directory to write a Tetris game. Implement code to pass the tests, one file and one test at a time, in the same order as they are listed below, starting with `FallingBlocksTest.java`.
 
-When you first run the tests, you should see the first test (`A_new_board.is_empty`) failing. Fix the code and run the tests to see it pass. Then uncomment the following test (`A_new_board.has_no_falling_blocks`). When that test passes, uncomment the next one (`When_a_block_is_dropped.the_block_is_falling`) and make it pass, until finally you have written code which passes all tests in that class. Then open the next test class and keep on continuing in the same fashion.
+When you first run the tests, you should see the first test (`A_New_Board.Is_Empty`) failing. Fix the code and run the tests to see it pass. Then uncomment the following test (`A_New_Board.Has_No_Falling_Blocks`). When that test passes, uncomment the next one (`When_A_Block_Is_Dropped.The_Block_Is_Falling`) and make it pass, until finally you have written code which passes all tests in that class. Then open the next test class and keep on continuing in the same fashion.
 
-Reference implementations for the steps of this tutorial have been [tagged in its Git repository](https://github.com/orfjackal/tdd-tetris-tutorial/tags) (the [beyond branch](http://github.com/orfjackal/tdd-tetris-tutorial/tree/beyond) contains the most complete implementation). It might be helpful to have a look at them *after* you have yourself implemented this tutorial that far. The reference implementation may teach you something about writing clean code.
-
-1. **FallingBlocksTest.java**
+1. **1_FallingBlocksTest.cs**
 
     In Tetris, the most important feature is that there are blocks which fall down, so that is the first behaviour which we will specify by writing tests. It is good to start the writing of a program with a very trivial test. In this case, we will first make sure that we have an empty game board.
 
     We'll use the [Simplification strategy](http://www.infoq.com/presentations/responsive-design) and first deal with just falling 1x1 blocks. We can expand that later to handle more complex multi-block pieces. It's best to avoid taking too big steps.
 
-2. **RotatingPiecesOfBlocksTest.java**
+2. **2_RotatingPiecesOfBlocksTest.cs**
 
     Rotating the pieces in Tetris is also very important, so let's code that next. You might need pen and paper when figuring out how the shape coordinates change when the shape is rotated.
 
     I decided to go for a generic algorithm for rotating any shapes. Another option would have been to hard-code the rotations of each shape. Both have their pros and cons. But even if this decision would prove to be bad when the game evolves furher, good test coverage and decoupled code will make it possible to change it afterwards.
 
-3. **RotatingTetrominoesTest.java**
+3. **3_RotatingTetrominoesTest.cs**
 
     [Tetrominoes](http://en.wikipedia.org/wiki/Tetromino) can have 1, 2 or 4 different positions when they are rotated. Now we can take advantage of the shape rotation code which we wrote just a moment ago.
 
@@ -62,19 +60,19 @@ Reference implementations for the steps of this tutorial have been [tagged in it
 
     If you are thinking of making the `Tetromino` class extend the `Piece` class, first read about the [Liskov Substitution Principle](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod) to know when it's right for a class to inherit another. In general, it's best to [favor composition over inheritance](http://www.artima.com/lejava/articles/designprinciples4.html).
 
-4. **FallingPiecesTest.java**
+4. **4_FallingPiecesTest.cs**
 
     Next we will connect the falling blocks and the rotatable pieces. In order to make the first test pass, you will probably need to refactor your code quite much (for me it took 1½ hours). You will need to build suitable abstractions, so that single-block pieces and multi-block pieces can be handled the same way (changing the test code should not be necessary). When refactoring, you must keep the tests passing between every small change, or you will end up in [refactoring hell](http://c2.c2.com/cgi/wiki?RefactoringHell). If more than five minutes have passed since the last time all tests passed, it's best to revert your code from source control to the last version where all tests passed.
 
     The difficulty of this refactoring depends on how well factored the code is. You could even say that the difficulty of this refactoring is inversely proportional to the length of the `Board.tick()` method (if most of the logic is in that one method, instead of using [Composed Method](http://www.infoq.com/presentations/10-Ways-to-Better-Code-Neal-Ford), then you're in trouble). If you get stuck, you may get some hints from [this example refactoring](http://www.cs.helsinki.fi/u/luontola/tdd-2009/kalvot/04.1-Refactoring-Example.pdf).
 
-5. **MovingAFallingPieceTest.java**
+5. **5_MovingAFallingPieceTest.cs**
 
     Now it's your turn to write the tests. I've provided some TODO items which should hint you on what tests to write.
 
     Feel free to refactor the test code and change any of the previosly used class or method names to be more descriptive, because there are no more predefined tests which might become incompatible with your code. Both production code and test code need to be taken care of, so you should regularly see if there is something to improve and then refactor it.
 
-6. **RotatingAFallingPieceTest.java**
+6. **6_RotatingAFallingPieceTest.cs**
 
     Keep on writing your own tests. You're getting the hang of it!
 
@@ -92,11 +90,3 @@ Reference implementations for the steps of this tutorial have been [tagged in it
 After you have completed this tutorial, you should have a rough understanding of how to use TDD - you should be at the [Practicing](http://www.agileskillsproject.com/skill-levels)/[Shu](http://martinfowler.com/bliki/ShuHaRi.html)/[Advanced Beginner](http://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition) level. You will probably still struggle with things like always writing a test first, using small enough steps, writing self-documenting tests, keeping the code clean etc. Also most of the tests in this tutorial are perhaps confusingly similar (they verify all game state using `toString()`) so you should practice writing tests for different kinds of situations. Likewise, this tutorial uses a bottom-up approach to TDD, which has the risk of producing something that is not needed, so learning also [a top-down approach](http://blog.orfjackal.net/2010/07/design-for-integrability.html) would be beneficial.
 
 You should continue practicing by writing lots of small applications using TDD, until TDD becomes second nature to you and you can use it ["when you have to get it done"](http://www.vimeo.com/groups/7657/videos/3756344). Learning that will take many months. It's also recommendable to read the books [Clean Code: A Handbook of Agile Software Craftsmanship](http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) and [Growing Object-Oriented Software, Guided by Tests](http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627). The former book teaches how to write good code. The latter book teaches how to use TDD to drive the design.
-
-
-License
--------
-
-Copyright © 2008-2010 Esko Luontola <<http://www.orfjackal.net>>  
-You may use and modify this material freely for personal non-commercial use.  
-This material may NOT be used as course material without prior written agreement.
